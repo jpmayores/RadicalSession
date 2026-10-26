@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Radical Generation Session</title>
+    <link rel="stylesheet" href="../asset/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+        /* Para pino at smooth ang pag-scroll */
+    }
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+        /* Inaalis ang sobrang horizontal scrollbar sa gilid */
+        overflow-y: auto;
+        /* Pinapayagan na ang vertical scrolling para makita ang laman sa ibaba */
+        background-color: #0f0f11;
+        color: #f1f1f1;
+    }
+
+    /* Custom Scrollbar Styling (Optional: Para maging maganda at aesthetic ang scrollbar) */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #0f0f11;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #282830;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #ff5722;
+        /* Mag-o-orange ang scrollbar pag itinapat ang mouse */
+    }
+
+    .about-hero-section {
+        position: relative;
+        width: 100%;
+        height: 40vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(15, 15, 17, 0.8)),
+            url('../FrontEnd/images/youth.jpg') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
+<body class="about-page">
+    <audio id="bgMusic" loop>
+        <source src="../music/liyab.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Play/Pause Music Button (Para kontrolin ng user) -->
+    <button id="musicToggleBtn" onclick="toggleMusic()" class="music-btn" title="Toggle Background Music">
+        🎵 Play Music
+    </button>
+    <!-- Header Navigation -->
+    <header class="navigation">
+        <div class="logo">† RADICAL GENERATION SESSION</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html" class="active">About</a>
+            <a href="Events.html">Events</a>
+            <a href="stories.html">Stories</a>
+
+        </nav>
+    </header>
+
+    <!-- About Hero Banner -->
+    <section class="about-hero-section">
+        <div class="about-hero-overlay">
+            <h1>Who We Are</h1>
+            <p>Empowering a Generation to Live Radically for Jesus Christ.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="about-main-container">
+
+        <!-- Mission & Vision Section -->
+        <section class="about-content-block">
+            <div class="about-heading">
+                <h2>Our Mission & Vision</h2>
+                <div class="about-line"></div>
+            </div>
+            <div class="about-grid-2">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>
+                        We Envision Chris`t Followers for the Ministry of Soul-Winning Discipleship
+                        and Church Planting To Build Up The Kingdom of God<br><br>
+
+                        <b>Mathew 16:18</b><br>
+                        And I also say to you that you are Peter, and on this rock I will build My church, and the gates
+                        of Hades shall not prevail against it.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Vision</h3>
+                    <p>
+                        To Go and Make Disciples of Jesus; Train and Equip Them to reach the lost with Gospel of Christ
+                        Through the power of Holy Spirit.<br><br>
+
+                        <b>Mathew 28:19-20</b><br>
+                        19 Go therefore and make disciples of all the nations, baptizing them in the name of the
+                        Father and of the Son and of the Holy Spirit, 20 teaching them to observe all things that I have
+                        commanded you; and lo, I am with you always, even to the end of the age.” Amen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="about-content-block">
+            <div class="about-heading">
+                <h2>What We Stand For</h2>
+                <div class="about-line"></div>
+            </div>
+            <div class="about-grid-3">
+                <div class="about-value-box">
+                    <h4>Radical Faith</h4>
+                    <p>Unshakable trust in God's promises and bold obedience to His call.</p>
+                </div>
+                <div class="about-value-box">
+                    <h4>Authentic Fellowship</h4>
+                    <p>Creating a safe, welcoming, and loving community for everyone.</p>
+                </div>
+                <div class="about-value-box">
+                    <h4>Passionate Worship</h4>
+                    <p>Lifting higher the name of Jesus through vibrant praise and dynamic worship.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action Section -->
+        <section class="about-cta">
+            <h2>Be Part of the Generation</h2>
+            <p>Join us in our upcoming sessions and worship gatherings. Everyone is welcome!</p>
+            <a href="Events.html" class="about-btn">See Events and Memories</a>
+        </section>
+
+    </main>
+    <section class="about-content-block team-section">
+        <div class="about-heading">
+            <h2>Meet Our Core Team</h2>
+            <div class="about-line"></div>
+        </div>
+       <div class="team-grid">
+    <!-- Overseer 1 -->
+    <div class="team-card">
+        <img src="images/officer1.jpg" alt="Overseer" class="team-img">
+        <div class="team-info">
+            <h3>Ate Yeye</h3>
+            <span>Overseer/Event Manager&Coordinator</span>
+            <p>Nangunguna at nagpapatnubay sa espirituwal na paglago ng ministeryo.</p>
+        </div>
+    </div>
+
+    <!-- Overseer 2 -->
+    <div class="team-card">
+        <img src="images/officer2.jpg" alt="Overseer" class="team-img">
+        <div class="team-info">
+            <h3>Ate Loudet</h3>
+            <span>Overseer</span>
+            <p>Nagbibigay ng gabay at suporta sa mga lider at kabataan.</p>
+        </div>
+    </div>
+
+    <!-- Overseer 3 -->
+    <div class="team-card">
+        <img src="images/officer3.jpg" alt="Overseer" class="team-img">
+        <div class="team-info">
+            <h3>Ate Noela</h3>
+            <span>Overseer</span>
+            <p>Tumutulong sa direksyon at pangitain ng grupo.</p>
+        </div>
+    </div>
+
+    <!-- President -->
+    <div class="team-card">
+        <img src="images/president.jpg" alt="President" class="team-img">
+        <div class="team-info">
+            <h3>Ate Kwinsi</h3>
+            <span>President</span>
+            <p>Nangangasiwa sa pangkalahatang patakbo at mga programa ng youth session.</p>
+        </div>
+    </div>
+
+    <!-- Vice President -->
+    <div class="team-card">
+        <img src="images/vice.jpg" alt="Vice President" class="team-img">
+        <div class="team-info">
+            <h3>Kuya Philip</h3>
+            <span>Vice President</span>
+            <p>Katuwang ng Pangulo sa pagpapatupad ng mga proyekto at aktibidad.</p>
+        </div>
+    </div>
+
+    <!-- Secretary -->
+    <div class="team-card">
+        <img src="images/secretary.jpg" alt="Secretary" class="team-img">
+        <div class="team-info">
+            <h3>PAte Jestine</h3>
+            <span>Secretary</span>
+            <p>Nangangalaga sa mga dokumento, talaan, at opisyal na sulat ng grupo.</p>
+        </div>
+    </div>
+
+    <!-- Assistant Secretary -->
+    <div class="team-card">
+        <img src="images/asst_secretary.jpg" alt="Assistant Secretary" class="team-img">
+        <div class="team-info">
+            <h3>Kuya Lei</h3>
+            <span>Assistant Secretary</span>
+            <p>Tumutulong sa kalihim sa pagtatala ng mga pagpupulong at anunsyo.</p>
+        </div>
+    </div>
+
+    <!-- Auditor -->
+    <div class="team-card">
+        <img src="images/auditor.jpg" alt="Auditor" class="team-img">
+        <div class="team-info">
+            <h3>PAte Nani</h3>
+            <span>Auditor</span>
+            <p>Tumatyak sa kawastuhan at transparency ng badyet at pondong ginagamit.</p>
+        </div>
+    </div>
+
+    <!-- Treasurer -->
+    <div class="team-card">
+        <img src="images/treasurer.jpg" alt="Treasurer" class="team-img">
+        <div class="team-info">
+            <h3>Ate Berlinr</h3>
+            <span>Treasurer</span>
+            <p>Nangangasiwa sa pananalapi at pag-iingat ng pondo para sa mga gawain.</p>
+        </div>
+    </div>
+</div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Radical Generation Session. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

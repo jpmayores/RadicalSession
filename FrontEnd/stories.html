@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories & Testimonies | Radical Generation Session</title>
+    <link rel="stylesheet" href="../asset/style.css">
+    <link rel="stylesheet" href="../asset/main.css">
+</head>
+<style>
+    /* Siguraduhing pwedeng mag-scroll ang pahina */
+    html,
+    body {
+        overflow-x: hidden;
+        /* Pinapayo para iwas horizontal scrollbar lang */
+        overflow-y: auto !important;
+        /* Pinapayagan ang vertical scrolling */
+        min-height: 100vh;
+        height: auto !important;
+    }
+
+    .main {
+        min-height: 100vh;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    /* 1. Modal Overlay (Fade-in effect) */
+/* Ang background overlay */
+#readStoryModal {
+    display: flex; /* Panatilihing flex para naka-center lagi */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Kapag active na (bubukas na) */
+#readStoryModal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ang mismong kahon ng modal na may zoom effect */
+#readStoryModal .modal-box {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+/* Kapag active, mag-scale papuntang normal size */
+#readStoryModal.active .modal-box {
+    transform: scale(1);
+    opacity: 1;
+}
+</style>
+
+<body class="main">
+    <audio id="bgMusic" loop>
+        <source src="../music/liyab.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Play/Pause Music Button (Para kontrolin ng user) -->
+    <button id="musicToggleBtn" onclick="toggleMusic()" class="music-btn" title="Toggle Background Music">
+        🎵 Play Music
+    </button>
+    <main id="content-area">>
+
+        <main id="content-area">
+
+            <!-- Navigation Header -->
+            <header class="navigation">
+                <div class="logo">† RADICAL GENERATION SESSION</div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="About.html">About</a>
+                    <a href="Events.html">Events</a>
+                    <a href="stories.html" class="active">Stories</a>
+
+                </nav>
+            </header>
+
+            <!-- Stories Hero Banner -->
+            <section class="hero-small">
+                <div class="overlay">
+                    <div class="content">
+                        <h1>Youth Lessons & Reflections</h1>
+                        <p>Chill lang, basahin mo 'to. Mga real talk at lessons tungkol sa buhay at kung paano gumalaw
+                            si Lord sa generation natin ngayon.</p>
+                        <button class="btn-event"
+                            onclick="document.getElementById('lessons-section').scrollIntoView({ behavior: 'smooth' });">
+                            Start Reading 📖
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stories Grid Section -->
+            <section class="stories-section">
+                <div class="about-heading">
+                    <h2 id="lessons-section">Pinili Para sa'yo</h2>
+                    <div class="about-line"></div>
+                    <p>Mga aral at reminders na kailangan mong mabasa ngayon. No cap, makakatulong 'to sa daily walk mo.
+                    </p>
+                </div>
+
+                <div class="stories-grid">
+                    <!-- Story Card 1 -->
+                    <article class="story-card">
+                        <div class="story-badge">Transformation</div>
+                        <div class="story-body">
+                            <h3>Finding Hope in My Darkest Moment</h3>
+
+                            <p class="story-excerpt">"Sa gitna ng low-key moments at ng pagka-feeling alone,
+                                hinding-hindi nagkulang si Lord sa pagbuhos ng liwanag. 'Yung totoong glow-up at
+                                pagbabago, nag-i-start talaga kapag hinayaan nating yakapin tayo ng love ni Jesus para
+                                ma-diretso tayo sa tamang path ng hope."</p>
+                            <button class="btn-event"
+                                onclick="openStoryModal('Finding Hope in My Darkest Moment', 'Youth Lesson', 'Sa gitna ng low-key moments at ng pagka-feeling alone, hinding-hindi nagkulang si Lord sa pagbuhos ng liwanag. Yaan ang totoong glow-up at pagbabago nag-i-start talaga kapag hinayaan nating yakapin tayo ng love ni Jesus para ma-diretso tayo sa tamang path ng hope.')">Read
+                                Full Story &rarr;</button>
+                        </div>
+                    </article>
+
+                    <!-- Story Card 2 -->
+                    <article class="story-card">
+                        <div class="story-badge">Calling & Purpose</div>
+                        <div class="story-body">
+                            <h3>Overcoming Fear of Failure</h3>
+
+                            <p class="story-excerpt">"Valid naman ma-scare magkamali o mag-try, pero 'wag kang papa-trap
+                                sa takot na 'yan! Sobra-sobra ang grace ni Lord sa mga flaws natin, at with the help ng
+                                ating mga leaders at squad, kayang-kaya nating ma-achieve ang purpose natin."</p>
+                            <button class="btn-event"
+                                onclick="openStoryModal('Overcoming Fear of Failure', 'Youth Lesson', 'Valid naman ma-scare magkamali o mag-try, pero \'wag kang papa-trap sa takot na \'yan! Sobra-sobra ang grace ni Lord sa mga flaws natin, at with the help ng ating mga leaders at squad, kayang-kaya nating ma-achieve ang purpose natin.')">Read
+                                Full Story &rarr;</button>
+                        </div>
+                    </article>
+
+                    <!-- Story Card 3 -->
+                    <article class="story-card">
+                        <div class="story-badge">Community</div>
+                        <div class="story-body">
+                            <h3>A Place Called Home</h3>
+
+                            <p class="story-excerpt">"Itong ministeryo ay hindi lang basta gathering, parang solid
+                                family
+                                talaga. Safe space 'to na zero judgment, pure love, solid support para sa spiritual
+                                growth, at laging kasama sa bawat panalangin."</p>
+                            <button class="btn-event"
+                                onclick="openStoryModal('A Place Called Home', 'Youth Lesson', 'Itong ministeryo ay hindi lang basta gathering, parang solid family talaga. Safe space \'to na zero judgment, pure love, solid support para sa spiritual growth, at laging kasama sa bawat panalangin.')">Read
+                                Full Story &rarr;</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- READ STORY MODAL POPUP -->
+        <div id="readStoryModal" class="modal-overlay">
+            <div class="modal-box">
+                <button class="modal-close" onclick="closeReadStoryModal()">&times;</button>
+                <span id="modalStoryAuthor" class="story-badge"
+                    style="margin-bottom: 10px; display: inline-block;">Author</span>
+                <h3 id="modalStoryTitle" style="color: #ffffff; margin-bottom: 15px;">Story Title</h3>
+                <div id="modalStoryContent"
+                    style="color: #b0b0b8; line-height: 1.6; max-height: 300px; overflow-y: auto; margin-bottom: 20px;">
+                    <!-- Full story text will appear here -->
+                </div>
+                <button class="btn-event" onclick="closeReadStoryModal()" style="width: 100%;">Close</button>
+            </div>
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>† Radical Generation</h3>
+                    <p>We exist to bring glory to God and lead young people to a life-changing experience with Jesus
+                        Christ.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Events.html">Events</a></li>
+                        <li><a href="stories.html">Stories</a></li>
+                        <li><a href="sermons.html">Sermons</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Gathering Schedule</h4>
+                    <p><strong>Youth Session:</strong> 2:00 PM Every 4th or 5th Sunday of Month</p>
+                    <p><strong>Venue:</strong> JESUS CHRIST WORD OF SALVATION CHURCH</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                        <a href="#" class="social-icon">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Radical Generation Session. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

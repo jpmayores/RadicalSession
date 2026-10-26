@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Radical Generation Session</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/event.css">
+    <link rel="stylesheet" href="../asset/style.css">
+    <link rel="stylesheet" href="../asset/main.css">
+
+</head>
+
+<body class="main">
+    <audio id="bgMusic" loop>
+        <source src="../music/liyab.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Floating Play/Pause Music Button (Para kontrolin ng user) -->
+    <button id="musicToggleBtn" onclick="toggleMusic()" class="music-btn" title="Toggle Background Music">
+        🎵 Play Music
+    </button>
+    <!-- Header Navigation -->
+    <header class="navigation">
+        <div class="logo">† RADICAL SESSION ALBUM</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Events.html" class="active">Events</a>
+            <a href="stories.html">Stories</a>
+
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="content-area">
+        <h2 class="section-title">Ministry Events & Memories</h2>
+
+        <div class="gallery">
+
+            <!-- Card 1 -->
+            <!-- Card 1 -->
+            <div class="card"
+                onclick="openModal('images/sports2.jpg', 'Sportfest (Day 1 & 2)', `Congratulations to all our champions and participants!\n\nThank you to everyone who played, served, cheered, and supported this year's Sports League.\n\nAbove all, God made it all possible through His goodness and grace. Every success, every provision, and every moment of this season is a reminder of His faithfulness. To Him alone be all the glory, now and forever!\n\nUntil next season—keep running the race, both on the court and in faith.`)">
+                <img src="images/sports2.jpg" alt="Sportfest">
+                <p>Sportfest (Day 1 & 2)</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card"
+                onclick="openModal('images/oath.jpg', 'Oath Taking and Registration Ceremony', 'To God be all the highest Glory, now and forever! ✨')">
+                <img src="images/oath.jpg" alt="Oath Taking">
+                <p>Oath Taking and Registration Ceremony</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card"
+                onclick="openModal('images/youth2.jpg', 'Rgen 3rd Anniversary', '3 Years of God undeserving grace, overwhelming love, and faithfulness. Praise God for the life of everyone who has been part of this journey. Here is to more years of serving, growing, and glowing in Christ! — 1 Corinthians 15:57')">
+                <img src="images/youth2.jpg" alt="Rgen Anniversary">
+                <p>Rgen 3rd Anniversary</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" 
+          onclick="openModal('images/liyab.jpg', 'Summer Praise (Liyab)', 'April 27, 2025 | INTER–CHURCH SUMMER PRAISE • LIYAB', 'Our GOD is consuming fire 🔥\n\n\&quot;...and thus let us offer to God acceptable worship, with reverence and awe, for our God is a consuming fire.\&quot; Hebrews 12:28-29\n\nALL THE HONOR, GLORY, AND ADORATION BELONGS TO GOD, NOW AND FOREVER!')">
+                 <img src="images/liyab.jpg" alt="Rgen Anniversary">
+          <p>Summer Praise (Liyab)</p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card"
+                onclick="openModal('images/meeting.jpg', 'Youth Core Meeting', 'Core leaders meeting-bond Get ready for the July session Rgenz!')">
+                <img src="images/meeting.jpg" alt="Youth Core">
+                <p>Youth Core Meeting</p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card"
+                onclick="openModal('images/bible.jfif', 'Bible Parade (2026)','GODS WORD: SOURCE OF HOPE HARMONY • OBEDIENCE • PEACE • EMPOWERMENT\n ROMANS 15:4 | LAMENTATIONS 3:21-26\n Everything written in the Scriptures was written to teach us, in order that we might have hope through the patience and encouragement which the Scriptures give us. – Romans 15:4.')">
+                <img src="images/bible.jfif" alt="Bible Parade">
+                <p>Bible Parade (2026)</p>
+            </div>
+
+            <div class="card"
+                onclick="openModal('images/puhon.jpg', 'Season 1: PUHON (In God\'s Time)', `Season 1: PUHON (In God\'s Time) • HEART 💔 BREAK The Lord is close to the brokenhearted and saves those who are crushed in spirit. — Psalms 34:18\n\nEspesyal na serye na may temang HEART 💔 BREAK, na nagtuturo sa mga kabataan na magtiwala sa perpektong takda at panahon ng Panginoon.\n\nTO GOD BE ALL THE GLORY, NOW AND FOREVER!`)">
+                <img src="images/puhon.jpg" alt="Puhon">
+                <p>Season 1: PUHON (In God's Time) • HEART 💔 BREAK</p>
+            </div>
+            <!-- Card 8 -->
+            <div class="card"
+                onclick="openModal('images/camp.jpg', 'May 4–5, 2026 | Outdoor Sesh | DAY 1', 'Grateful for each moment, every lesson learned, every mind and heart that has been changed along the way, We belong to You—that is our true identity, We give thanks to God for working through Global Surge Camps and the Rawlings Foundation to bless and impact the lives of our young people..')">
+                <img src="images/camp.jpg" alt="Puhon">
+                <p>May 4–5, 2026 | Outdoor Sesh | DAY 1
+                    I.D.ENTITY Youth Camp 2026</p>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card"
+                onclick="openModal('images/brandnewday.jpg', '09.27.26 | 4TH ANNIVERSARY SERVICE • BRAND NEW DAY', 'Last Sunday was more than just a celebration—it was a reminder of how faithful God has been for the past four years., As we step into another year with Jesus, may every new day begin and end with Him.')">
+                <img src="images/brandnewday.jpg" alt="Puhon">
+                <p>09.27.26 | 4TH ANNIVERSARY SERVICE • BRAND NEW DAY
+                </p>
+            </div>
+               <!-- Card 10 -->
+            <div class="card"
+                onclick="openModal('images/kids.jpg', 'March 29, 2026  Inter-Church Summer Praise 2026', 'Seeing these young hearts worship, learn, and express their faith through creativity reminds us that true joy comes from the Lord alone.\n\nEvery smile, every artwork, and every moment shared was a beautiful reflection of God’s love and joy in their lives\n\n.See ü on our next sesh, RGen kidz!ALL GLORY TO GOD, NOW AND FOREVER')">
+                <img src="images/kids.jpg" alt="Puhon">
+                <p>03.29.26 | 1ST RGEN KIDZ SESH </p>
+            </div>
+            <div class="card"
+                onclick="openModal('images/interpraise.jpg', '05.31.26 | Inter-Church Summer Praise 2026', 'We are grateful and overflowing with joy for the victorious Inter-Church Summer Praise Fuel Up: Next Gen Energy last Sunday!\n\nThank You, Jesus, for every young person who came with expectant hearts, every worship song lifted, every prayer spoken, every truth shared, and every heart renewed in Your presence. Truly, You are our greatest source of energy\n\nTO GOD BE ALL THE PRAISE, HONOR, AND GLORY—NOW AND FOREVER!')">
+                <img src="images/interpraise.jpg" alt="Puhon">
+                <p>Inter-Church Summer Praise Fuel Up: Next Gen Energy  </p>
+            </div>
+        </div>
+        </div>
+    </main>
+    <!-- Facebook View More Call-to-Action Section -->
+    <div class="more-events-container">
+        <p>Gusto mo pa bang makakita ng iba pang nakaraang events at mga Memories>?</p>
+        <a href="https://facebook.com/YOUR_FACEBOOK_PAGE_LINK" target="_blank" class="fb-more-btn">
+            <i class="fab fa-facebook"></i> View More Events on Facebook
+        </a>
+    </div>
+    <!-- Modal Popup Box -->
+    <div id="eventModal" class="modal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="Event Image">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript para sa Popup Functionality -->
+    <script src="script.js"></script>
+</body>
+
+</html>

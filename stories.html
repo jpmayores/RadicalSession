@@ -54,6 +54,16 @@
     transform: scale(1);
     opacity: 1;
 }
+@media (max-width: 768px) {
+    .hero, .hero-small {
+        min-height: 85vh; /* Dagdagan nang kaunti ang taas para may breathing room */
+        padding: 60px 15px; /* Ayusin ang padding sa gilid */
+    }
+    
+    .hero h1, .hero-small h1 {
+        font-size: 1.8rem; /* Paki-adjust ng font size para hindi masyadong malaki sa maliit na screen */
+    }
+}
 </style>
 
 <body class="main">

@@ -1244,6 +1244,7 @@ img {
 }
 
 /* Social Icon Button Styling */
+/* Social Icon Button Styling */
 .social-icon {
     display: inline-flex;
     align-items: center;
@@ -1252,21 +1253,26 @@ img {
     height: 45px;
     background-color: #16181e;
     border: 1px solid #2a2d36;
-    border-radius: 50%; /* Ginagawa silang perpektong bilog */
-    color: #ffffff;
+    border-radius: 50%;
+    color: #ffffff; /* Kulay puti sa simula */
     font-size: 1.1rem;
     text-decoration: none;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover Effect (Aangat, magkukulay flame/orange, at magkakaroon ng glow) */
+/* Hover Effect */
 .social-icon:hover {
     background: linear-gradient(135deg, #ff4500 0%, #ff6b00 100%);
     border-color: #ff4500;
-    color: #ffffff;
+    color: #ffffff !important; /* Piliting gawing puti ang icon kapag hinover para kita */
     transform: translateY(-4px) scale(1.1);
     box-shadow: 0 8px 20px rgba(255, 69, 0, 0.5);
+}
+
+/* Siguraduhing kahit ang <i> tag sa loob ay maging puti */
+.social-icon:hover i {
+    color: #ffffff;
 }
 
 /* Active Click State */

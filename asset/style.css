@@ -97,7 +97,7 @@ html, body {
     position: relative;
     width: 100%;
     min-height: 80vh; /* Gawing min-height sa halip na fixed calc para may allowance */
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('../FrontEnd/images/youth.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('../images/youth.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1137,7 +1137,7 @@ img {
    STORIES PAGE STYLING
    ========================================== */
 .hero-small {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../FrontEnd/images/youth.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../images/youth.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1420,4 +1420,116 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #ff5722; /* Mag-o-orange kapag itinapat ang mouse cursor */
+}
+/* Split Layout Container */
+.team-split-section {
+    display: flex;
+    gap: 40px;
+    padding: 60px 5%;
+    background-color: #0d0e12;
+    align-items: flex-start;
+}
+
+/* Kaliwang Bahagi (Sticky Info) */
+.team-left-sticky {
+    flex: 1;
+    position: sticky;
+    top: 100px; /* Mananatili sa taas habang nag-e-scroll */
+}
+
+.team-left-sticky h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.team-left-sticky p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* Kanang Bahagi (Hati-hating Officer Cards Grid) */
+.team-right-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Card Styling & Hover Effects */
+.team-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #16181e;
+    border: 1px solid #2a2d36;
+    height: 320px;
+    cursor: pointer;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.6); /* Grayscale sa umpisa */
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.team-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
+    opacity: 0; /* Nakatago ang details */
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.team-info h3 {
+    color: #ffffff;
+    margin: 0 0 4px 0;
+    font-size: 1.05rem;
+}
+
+.team-info span {
+    color: #ff4500;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.team-info p {
+    color: #b0b0b0;
+    font-size: 0.78rem;
+    margin: 0;
+    line-height: 1.35;
+}
+
+/* Hover Effect: Lalabas ang kulay at details */
+.team-card:hover .team-img,
+.team-card:active .team-img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05);
+}
+
+.team-card:hover .team-info,
+.team-card:active .team-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments para sa Mobile Screens */
+@media (max-width: 768px) {
+    .team-split-section {
+        flex-direction: column;
+    }
+    .team-left-sticky {
+        position: static;
+        margin-bottom: 30px;
+    }
 }

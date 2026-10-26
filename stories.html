@@ -10,6 +10,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <style>
+    /* I-reset ang body at content-area para sa mobile view */
+body.main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Para hindi lumagpas sa gilid ang mga elemento */
+}
+
+#content-area {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Para sa mobile screens (768px pababa) */
+@media (max-width: 768px) {
+    .navigation, .hero, .hero-small {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 0; /* Alisin ang kanto o rounded borders kung meron man para sakop ang buong lapad */
+        box-sizing: border-box;
+    }
+}
     /* Siguraduhing pwedeng mag-scroll ang pahina */
     html,
     body {

@@ -104,6 +104,11 @@ html, body {
     text-align: center;
     padding: 40px 20px;
 }
+/* Para sa flame image size at margin */
+.hero .content img.frame, .hero-small .content img.frame {
+    width: 250px; /* Pwede mong paliitin (halimbawa: 220px) o lakihan */
+    margin-bottom: 15px; /* Agwat sa pagitan ng image at ng title heading */
+}
 .overlay {
     width: 100%;
     max-width: 900px;

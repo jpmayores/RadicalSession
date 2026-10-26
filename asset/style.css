@@ -294,7 +294,40 @@ img {
         transform: translateY(0);
     }
 }
+@media (max-width: 768px) {
+    /* Ginagawang full-width at inaalis ang gilid-gilid na espasyo sa mobile */
+    .navigation {
+        width: 100%;
+        padding: 15px 15px;
+        flex-direction: column;
+        gap: 12px;
+        box-sizing: border-box;
+    }
 
+    /* Lakihan nang kaunti ang logo para madaling basahin */
+    .navigation .logo {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    /* Ayusin ang agwat at ayos ng nav links sa phone screen */
+    .navigation nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    /* Palakihin ang clickable area (padding) ng Home, About, Events, Stories para madaling pindutin ng daliri */
+    .navigation nav a {
+        font-size: 0.95rem;
+        padding: 8px 10px;
+        font-weight: 600;
+        display: inline-block;
+    }
+}
 
 /* --- ABOUT PAGE SPECIFIC STYLES (Para hindi mag-duplicate) --- */
 

@@ -25,45 +25,54 @@
         height: auto !important;
         overflow: visible !important;
     }
+
     /* 1. Modal Overlay (Fade-in effect) */
-/* Ang background overlay */
-#readStoryModal {
-    display: flex; /* Panatilihing flex para naka-center lagi */
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-/* Kapag active na (bubukas na) */
-#readStoryModal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Ang mismong kahon ng modal na may zoom effect */
-#readStoryModal .modal-box {
-    transform: scale(0.8);
-    opacity: 0;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-}
-
-/* Kapag active, mag-scale papuntang normal size */
-#readStoryModal.active .modal-box {
-    transform: scale(1);
-    opacity: 1;
-}
-@media (max-width: 768px) {
-    .hero, .hero-small {
-        min-height: 85vh; /* Dagdagan nang kaunti ang taas para may breathing room */
-        padding: 60px 15px; /* Ayusin ang padding sa gilid */
+    /* Ang background overlay */
+    #readStoryModal {
+        display: flex;
+        /* Panatilihing flex para naka-center lagi */
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    
-    .hero h1, .hero-small h1 {
-        font-size: 1.8rem; /* Paki-adjust ng font size para hindi masyadong malaki sa maliit na screen */
+
+    /* Kapag active na (bubukas na) */
+    #readStoryModal.active {
+        opacity: 1;
+        visibility: visible;
     }
-}
+
+    /* Ang mismong kahon ng modal na may zoom effect */
+    #readStoryModal .modal-box {
+        transform: scale(0.8);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    }
+
+    /* Kapag active, mag-scale papuntang normal size */
+    #readStoryModal.active .modal-box {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+
+        .hero,
+        .hero-small {
+            min-height: 85vh;
+            /* Dagdagan nang kaunti ang taas para may breathing room */
+            padding: 60px 15px;
+            /* Ayusin ang padding sa gilid */
+        }
+
+        .hero h1,
+        .hero-small h1 {
+            font-size: 1.8rem;
+            /* Paki-adjust ng font size para hindi masyadong malaki sa maliit na screen */
+        }
+    }
 </style>
 
 <body class="main">
@@ -214,9 +223,15 @@
                 <div class="footer-col">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-icon">Facebook</a>
-                        <a href="#" class="social-icon">Instagram</a>
-                        <a href="#" class="social-icon">YouTube</a>
+                        <a href="https://www.facebook.com/profile.php?id=61561593338354" target="_blank" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>

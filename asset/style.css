@@ -193,6 +193,9 @@ html, body {
         box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
     }
 }
+.btn-join:hover svg {
+    transform: translateX(5px);
+}
 /* Events */
 .container {
     display: flex;

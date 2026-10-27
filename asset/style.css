@@ -365,7 +365,16 @@ img {
 .about-content-block {
     margin-bottom: 60px;
 }
-
+.about-content-block.team-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    align-items: stretch; /* Sinisiguradong pantay ang haba ng bawat grupo */
+}
 .about-heading {
     text-align: center;
     margin-bottom: 40px;
@@ -597,82 +606,107 @@ img {
         padding: 35px 15px;
     }
 }
-
+.group-title{
+    color: #ff5722;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+ 
+}
 
 /* Team Profile Cards Section */
-.team-section {
-    margin-top: 60px;
-}
+
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    align-items: stretch; /* Pantay ang taas ng mga cards */
+    max-width: 1100px;
+    margin: 0 auto;
 }
-
 .team-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    background-color: #16181e;
+    background: #16181e;
     border: 1px solid #2a2d36;
-    height: 340px;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     cursor: pointer;
-}
-
-.team-img {
-    width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) brightness(0.65); /* Naka-gray at medyo madilim muna */
-    transition: filter 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Pantay na Sukat ng Larawan at Grayscale-to-Color / Hover Animation */
+.team-card .team-img {
+ width: 100%;
+    height: 350px; /* Pantay-pantay na taas para sa lahat ng cards */
+    object-fit: cover; /* Pinupuno ang buong lagayan nang hindi nasisira ang itsura */
+    border-radius: 16px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    filter: grayscale(100%);
+    opacity: 0.85;
+    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover Effect: Aangat ang card at magiging full color ang larawan */
+.team-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff4500;
+    box-shadow: 0 12px 30px rgba(255, 69, 0, 0.35);
+}
+.team-card:hover .team-img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+/* Card Info Styling */
 .team-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 15px;
-    box-sizing: border-box;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
-    opacity: 0; /* Nakatago ang details sa simula */
-    transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    padding: 20px;
+    text-align: center;
+    background: #16181e;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .team-info h3 {
     color: #ffffff;
-    margin: 0 0 4px 0;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .team-info span {
-    color: #ff4500; /* Accent color */
-    font-size: 0.9rem;
-    font-weight: 600;
     display: block;
+    color: #ff6b00;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 8px;
 }
 
 .team-info p {
-    color: #b0b0b0;
+    color: #94a3b8;
     font-size: 0.82rem;
-    margin: 0;
     line-height: 1.4;
+    margin: 0;
 }
 
-/* Hover & Active / Touch Effect */
-.team-card:hover .team-img,
-.team-card:active .team-img {
-    filter: grayscale(0%) brightness(1); /* Babalik sa totoong kulay */
-    transform: scale(1.05);
-}
-
-.team-card:hover .team-info,
-.team-card:active .team-info {
-    opacity: 1; /* Lalabas ang details */
-    transform: translateY(0);
+/* Responsive para sa Mobile Screen */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+    }
 }
 /* Plan Your Visit Section */
 /* Plan Your Visit Styles */
@@ -1580,9 +1614,53 @@ img {
 /* Flame Glow and Pulse Animation */
 .content img.frame, .content img.flame {
     animation: flameGlowPulse 2.5s infinite ease-in-out;
-    border-radius: 50%; /* Kung pabilog ang background, pero optional */
+    border-radius: 50%; /* Kung pabilog ang background, pero optional */ 
+}
+.flame-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.spark {
+  position: absolute;
+  bottom: 20%;
+  width: 6px;
+  height: 6px;
+  background: #ff8c00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4500;
+  opacity: 0;
+  animation: riseAndFade 2s infinite linear;
 }
 
+.spark.s1 { left: 40%; animation-delay: 0s; }
+.spark.s2 { left: 50%; animation-delay: 0.7s; }
+.spark.s3 { left: 60%; animation-delay: 1.3s; }
+
+@keyframes riseAndFade {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) scale(0.2);
+    opacity: 0;
+  }
+}
+@keyframes sparkRise {
+    0% { transform: translateY(0) scale(1); opacity: 1; filter: drop-shadow(0 0 10px #ff4500); }
+    100% { transform: translateY(-50px) scale(0.3); opacity: 0; filter: drop-shadow(0 0 20px #ffa500); }
+}
+@keyframes fireBreathe {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.5));
+    }
+    50% {
+        transform: scale(1.08) translateY(-4px);
+        filter: drop-shadow(0 0 35px rgba(255, 120, 0, 0.9));
+    }
+}
 @keyframes flameGlowPulse {
     0% {
         transform: translateY(0) scale(1);
@@ -1598,7 +1676,28 @@ img {
     }
 }
 
-
+@keyframes flameFlicker {
+  0% {
+    transform: rotate(-2deg) scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.6)) brightness(1);
+  }
+  25% {
+    transform: rotate(2deg) scale(1.03) skewX(1deg);
+    filter: drop-shadow(0 0 25px rgba(255, 120, 0, 0.8)) brightness(1.1);
+  }
+  50% {
+    transform: rotate(-1deg) scale(0.98) skewX(-1deg);
+    filter: drop-shadow(0 0 18px rgba(255, 69, 0, 0.5)) brightness(0.95);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.02) skewX(2deg);
+    filter: drop-shadow(0 0 28px rgba(255, 140, 0, 0.9)) brightness(1.15);
+  }
+  100% {
+    transform: rotate(-2deg) scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 69, 0, 0.6)) brightness(1);
+  }
+}
 
 
 /* Custom Scrollbar Styling */
@@ -1728,5 +1827,488 @@ img {
     .team-left-sticky {
         position: static;
         margin-bottom: 30px;
+    }
+}
+
+/* Modal Overlay Background */
+.team-modal {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.team-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Modal Content Box (Smooth Scale & Zoom Animation) */
+.team-modal-content {
+    background: #16181e;
+    border: 1px solid #ff4500;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 650px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(255, 69, 0, 0.3);
+    overflow: hidden;
+    transform: translateY(30px) scale(0.9);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.35s ease;
+}
+
+.team-modal.active .team-modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+/* Close Button (X) */
+.team-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.team-modal-close:hover {
+    color: #ff4500;
+    transform: scale(1.15);
+}
+
+/* Modal Body Layout */
+.team-modal-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.team-modal-img-wrapper {
+    flex: 1;
+    max-width: 250px;
+    height: 320px;
+    overflow: hidden;
+}
+
+.team-modal-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.team-modal-details {
+    flex: 1.2;
+    padding: 30px 25px;
+}
+
+.team-modal-details h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.team-modal-details span {
+    color: #ff4500;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+.modal-divider {
+    width: 40px;
+    height: 3px;
+    background: #ff4500;
+    margin: 15px 0;
+    border-radius: 2px;
+}
+
+.team-modal-details p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 600px) {
+    .team-modal-body {
+        flex-direction: column;
+    }
+    .team-modal-img-wrapper {
+        max-width: 100%;
+        width: 100%;
+        height: 220px;
+    }
+    .team-modal-details {
+        padding: 20px;
+        text-align: center;
+    }
+    .modal-divider {
+        margin: 15px auto;
+    }
+}
+
+ .typing-text { /* Pwede mo nang palitan ang class name kung gusto mo, e.g., .hero-title */
+    animation: fadeSlideUp 1.2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .typing-text {
+        font-size: 1.15rem;
+    }
+}
+
+
+
+/* Church Home Section Styling */
+.church-home-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.church-container {
+    background: #121212;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 69, 0, 0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.church-container:hover {
+    border-color: #ff4500;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 69, 0, 0.3);
+}
+
+/* Image Box Setup */
+.church-image-box {
+    flex: 1 1 450px;
+    position: relative;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+.church-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.church-container:hover .church-img {
+    transform: scale(1.04);
+}
+
+/* Info Box Setup */
+.church-info-box {
+    flex: 1 1 400px;
+    padding: 35px 30px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.church-info-box .sub-title {
+    color: #ff4500;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.church-info-box h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.church-info-box p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.church-details {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.church-details p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .church-container {
+        flex-direction: column;
+    }
+    
+    .church-image-box {
+        width: 100%;
+        height: 220px;
+    }
+    
+    .church-info-box {
+        padding: 25px 20px;
+    }
+
+    .church-info-box h2 {
+        font-size: 1.5rem;
+    }
+}
+/* Contact Section Styling */
+.web-contact-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.web-contact-card {
+    background: #121212;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 69, 0, 0.15);
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.contact-header .sub-title {
+    color: #ff4500;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contact-header h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin: 8px 0;
+}
+
+.contact-header p {
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+.contact-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;
+    width: 100%;
+}
+
+/* Kaliwang side (Contact Info Box) - Siguraduhing kalahati ang kain */
+.contact-info-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 280px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #1a1a1a;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 69, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    border-color: #ff4500;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 69, 0, 0.1);
+    border: 1px solid rgba(255, 69, 0, 0.4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff4500;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.info-item p {
+    color: #aaaaaa;
+    margin: 3px 0 0 0;
+    font-size: 0.88rem;
+}
+
+/* Form */
+.contact-form {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff4500;
+}
+
+.submit-btn {
+    background: #ff4500;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.4);
+}
+/* Ayusin ang grid para magkatabi ang info list at ang profile card */
+
+/* Kanang side (Developer Profile Card) */
+.developer-profile-card {
+    flex: 1;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 69, 0, 0.4);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+}
+
+/* Pag-ayos sa laki ng bilog ng profile picture mo para hindi maipit */
+.developer-img-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #ff4500, #ff8c00);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+.developer-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #121212;
+}
+
+.dev-badge {
+    background: rgba(255, 69, 0, 0.15);
+    color: #ff4500;
+    border: 1px solid #ff4500;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.developer-profile-card h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin: 5px 0;
+}
+
+.dev-bio {
+    color: #aaaaaa;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .web-contact-card {
+        padding: 25px 20px;
+    }
+    
+    .contact-grid {
+        flex-direction: column;
     }
 }

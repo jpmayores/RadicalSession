@@ -196,4 +196,95 @@ function handleShareStorySubmit(event) {
                 closeModal();
             }
         }
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('teamModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const modalRole = document.getElementById('modalRole');
+    const modalDesc = document.getElementById('modalDesc');
+    const closeBtn = document.getElementById('modalCloseBtn');
+    const cards = document.querySelectorAll('.team-card');
 
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const img = card.querySelector('.team-img');
+            const name = card.querySelector('.team-info h3');
+            const role = card.querySelector('.team-info span');
+            const desc = card.querySelector('.team-info p');
+
+            if (img) modalImg.src = img.src;
+            if (name) modalName.textContent = name.textContent;
+            if (role) modalRole.textContent = role.textContent;
+            if (desc) modalDesc.textContent = desc.textContent;
+
+            // Buksan ang modal na may animation
+            modal.classList.add('active');
+        });
+    });
+
+    // Isara ang modal nang may animation
+    const closeModal = () => {
+        modal.classList.remove('active');
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Pindutin ang 'Escape' key para magsara
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('eventSearch');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    
+    // Naka-target na ngayon sa eksaktong class na gamit mo (.card)
+    const eventCards = document.querySelectorAll('.gallery .card'); 
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function filterEvents() {
+        eventCards.forEach(card => {
+            // Kinukuha ang buong text sa loob ng card para mag-match sa search query
+            const textContent = card.innerText ? card.innerText.toLowerCase() : '';
+            const category = card.getAttribute('data-category') || 'all';
+
+            const matchesSearch = textContent.includes(searchQuery);
+            const matchesCategory = (currentFilter === 'all') || (category === currentFilter);
+
+            if (matchesSearch && matchesCategory) {
+                card.style.display = ""; // Ipakita
+            } else {
+                card.style.display = "none"; // Itago
+            }
+        });
+    }
+
+    // Live Search Input Listener
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterEvents();
+        });
+    }
+
+    // Category Filter Buttons Listener
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            currentFilter = btn.getAttribute('data-filter');
+            filterEvents();
+        });
+    });
+});

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Radical Generation Session</title>
     <link rel="stylesheet" href="../asset/style.css">
-
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <style>
@@ -57,6 +57,29 @@
         justify-content: center;
         text-align: center;
         padding: 20px;
+    }
+
+    /* Group Subtitles */
+    /* Pangkalahatang Seksyon para sa Team */
+    .team-section {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 50px 20px;
+    }
+
+    .team-group {
+        display: block;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+
+    .title-underline {
+        width: 60px;
+        height: 4px;
+        background: #ff4500;
+        margin: 10px auto 0;
+        border-radius: 2px;
     }
 </style>
 
@@ -119,13 +142,38 @@
 
                         <b>Mathew 28:19-20</b><br>
                         <b>19</b> Go therefore and make disciples of all the nations, baptizing them in the name of the
-                        Father and of the Son and of the Holy Spirit, <b>20</b> teaching them to observe all things that I have
+                        Father and of the Son and of the Holy Spirit, <b>20</b> teaching them to observe all things that
+                        I have
                         commanded you; and lo, I am with you always, even to the end of the age.” Amen.
                     </p>
                 </div>
             </div>
         </section>
-
+        <!-- Our Church Home Section -->
+        <section class="church-home-section">
+            <div class="church-container">
+                <div class="church-image-box">
+                    <!-- Palitan ang 'images/church-building.jpg' sa totoong filename/path ng litrato ng inyong simbahan -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!4v1793103855579!6m8!1m7!1skg-BcBV0Ac521hL1HEyJTw!2m2!1d14.54046669267572!2d121.0645276220822!3f266.08!4f-5.049999999999997!5f1.3052227045938467"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <div class="church-info-box">
+                    <span class="sub-title">OUR LOCATION & HOME</span>
+                    <h2>Welcome To Our JCWS Church</h2>
+                    <p>
+                        Dito nagtitipon ang **Radical Generation** upang sumamba, lumago sa Salita ng Diyos, at bumuo ng
+                        isang tunay na pamilya sa pananampalataya.
+                    </p>
+                    <div class="church-details">
+                        <p>📍 <strong>Location: </strong>Jesus Christ the Word of Salvation Church
+                    445 T. Sulit St., Brgy. Martirez Del ’96, Pateros</p>
+                        <p>⏰<strong>Service Time:</strong> Every Sunday | 9:00 AM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Core Values Section -->
         <section class="about-content-block">
             <div class="about-heading">
@@ -161,99 +209,125 @@
             <h2>Meet Our Core Team</h2>
             <div class="about-line"></div>
         </div>
-       <div class="team-grid">
-    <!-- Overseer 1 -->
-    <div class="team-card">
-        <img src="images/officer1.jpg" alt="Overseer" class="team-img">
-        <div class="team-info">
-            <h3>Ate Yeye</h3>
-            <span>Overseer/Event Manager&Coordinator</span>
-            <p>Nangunguna at nagpapatnubay sa espirituwal na paglago ng ministeryo.</p>
+        <div class="team-grid">
+            <!-- Overseer 1 -->
+            <div class="team-group">
+                <h3 class="group-title">SENIOR PASTOR</h3>
+                <div class="team-grid leader-grid">
+                    <div class="team-card main-leader-card">
+                        <img src="images/armilo.jpg" alt="Main Youth Leader" class="team-img">
+                        <div class="team-info">
+                            <h3>Armilo E. Chavez</h3>
+                            <span>Senior Pastor</span>
+                            <p>Nangunguna sa pagpapatakbo at pangkalahatang gawain ng kabataan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY 2: MAIN YOUTH LEADER -->
+            <div class="team-group">
+                <h3 class="group-title">MAIN YOUTH LEADER</h3>
+                <div class="team-grid leader-grid">
+                    <div class="team-card main-leader-card">
+                        <img src="images/mainleader.jpg" alt="Main Youth Leader" class="team-img">
+                        <div class="team-info">
+                            <h3>Fatima Barzuela Galang</h3>
+                            <span>Main Youth Leader</span>
+                            <p>Nangunguna sa pagpapatakbo at pangkalahatang gawain ng kabataan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORY 3: JCWS YOUTH -->
+            <div class="team-group">
+                <h3 class="group-title">JCWS YOUTH</h3>
+                <div class="team-grid youth-grid">
+                    <!-- Dito mo ilalagay ang iba pang officers/members katulad ng Secretary, Treasurer, Auditor, etc. -->
+                    <div class="team-card">
+                        <img src="images/youthcore.jpg" alt="JCWS Youth" class="team-img">
+                        <div class="team-info">
+                            <h3>JCWS YOUTH CORE TEAM</h3>
+                            <span>Youth Leader`s / Officer</span>
+                            <p>Naglilingkod at sumusuporta sa mga gawain ng kabataan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- Modal Popup UI Container -->
+    <div id="teamModal" class="team-modal">
+        <div class="team-modal-content">
+            <button class="team-modal-close" id="modalCloseBtn">&times;</button>
+            <div class="team-modal-body">
+                <div class="team-modal-img-wrapper">
+                    <img id="modalImg" src="" alt="Team Member">
+                </div>
+                <div class="team-modal-details">
+                    <h2 id="modalName">Name</h2>
+                    <span id="modalRole">Role / Position</span>
+                    <div class="modal-divider"></div>
+                    <p id="modalDesc">Description goes here...</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Overseer 2 -->
-    <div class="team-card">
-        <img src="images/officer2.jpg" alt="Overseer" class="team-img">
-        <div class="team-info">
-            <h3>Ate Loudet</h3>
-            <span>Overseer</span>
-            <p>Nagbibigay ng gabay at suporta sa mga lider at kabataan.</p>
+    
+   <!-- Website Inquiries / Contact Developer Section -->
+<section class="web-contact-section">
+    <div class="web-contact-card">
+        <div class="contact-header">
+            <span class="sub-title">NEED HELP OR HAVE QUESTIONS?</span>
+            <h2>Get in Touch with Us</h2>
+            <p>May tanong ka ba tungkol sa Radical Generation website o gustong magpa-inquire? Mag-iwan ng mensahe sa amin!</p>
+        </div>
+        <div class="contact-grid">
+<div class="contact-info-box">
+    <div class="info-item">
+        <div class="icon-box">
+            <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div>
+            <h4>Email Me</h4>
+            <p>jpmayoresph@gmail.com</p>
         </div>
     </div>
-
-    <!-- Overseer 3 -->
-    <div class="team-card">
-        <img src="images/officer3.jpg" alt="Overseer" class="team-img">
-        <div class="team-info">
-            <h3>Ate Noela</h3>
-            <span>Overseer</span>
-            <p>Tumutulong sa direksyon at pangitain ng grupo.</p>
+    
+    <div class="info-item">
+        <div class="icon-box">
+            <i class="fa-solid fa-phone-volume"></i>
+        </div>
+        <div>
+            <h4>Call / Message</h4>
+            <p>09366752045</p>
         </div>
     </div>
-
-    <!-- President -->
-    <div class="team-card">
-        <img src="images/president.jpg" alt="President" class="team-img">
-        <div class="team-info">
-            <h3>Ate Kwinsi</h3>
-            <span>President</span>
-            <p>Nangangasiwa sa pangkalahatang patakbo at mga programa ng youth session.</p>
+    
+    <div class="info-item">
+        <div class="icon-box">
+            <i class="fa-brands fa-facebook"></i>
         </div>
-    </div>
-
-    <!-- Vice President -->
-    <div class="team-card">
-        <img src="images/vice.jpg" alt="Vice President" class="team-img">
-        <div class="team-info">
-            <h3>Kuya Philip</h3>
-            <span>Vice President</span>
-            <p>Katuwang ng Pangulo sa pagpapatupad ng mga proyekto at aktibidad.</p>
-        </div>
-    </div>
-
-    <!-- Secretary -->
-    <div class="team-card">
-        <img src="images/secretary.jpg" alt="Secretary" class="team-img">
-        <div class="team-info">
-            <h3>Ate Jestine</h3>
-            <span>Secretary</span>
-            <p>Nangangalaga sa mga dokumento, talaan, at opisyal na sulat ng grupo.</p>
-        </div>
-    </div>
-
-    <!-- Assistant Secretary -->
-    <div class="team-card">
-        <img src="images/asst_secretary.jpg" alt="Assistant Secretary" class="team-img">
-        <div class="team-info">
-            <h3>Kuya Lei</h3>
-            <span>Assistant Secretary</span>
-            <p>Tumutulong sa kalihim sa pagtatala ng mga pagpupulong at anunsyo.</p>
-        </div>
-    </div>
-
-    <!-- Auditor -->
-    <div class="team-card">
-        <img src="images/auditor.jpg" alt="Auditor" class="team-img">
-        <div class="team-info">
-            <h3>Ate Nani</h3>
-            <span>Auditor</span>
-            <p>Tumatyak sa kawastuhan at transparency ng badyet at pondong ginagamit.</p>
-        </div>
-    </div>
-
-    <!-- Treasurer -->
-    <div class="team-card">
-        <img src="images/treasurer.jpg" alt="Treasurer" class="team-img">
-        <div class="team-info">
-            <h3>Ate Berlin</h3>
-            <span>Treasurer</span>
-            <p>Nangangasiwa sa pananalapi at pag-iingat ng pondo para sa mga gawain.</p>
+        <div>
+            <h4>Social Media</h4>
+            <p>JP Mayores</p>
         </div>
     </div>
 </div>
-    </section>
-    <!-- Footer -->
+
+    <!-- Web Developer Profile Card -->
+    <div class="developer-profile-card">
+        <div class="developer-img-wrapper">
+            <!-- Palitan ang 'images/my-photo.jpg' sa totoong filename ng larawan mo -->
+            <img src="images/vice.jpg" alt="Web Developer" class="developer-img">
+        </div>
+        <span class="dev-badge">Student Web Developer</span>
+        <h3>Jhon Philip P. Mayores</h3>
+        <p class="dev-bio">
+            In-charge sa pagbuo at pagpapanatili ng Radical Generation Website. Para sa mga teknikal na usapin o pagpapaganda ng ating web features, maaari mo akong kontakin nang direkta!
+        </p>
+    </div>
+</div>
     <footer>
         <p>&copy; 2026 Radical Generation Session. All rights reserved.</p>
     </footer>

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function openPrayerModal(eventName = '') {
     const modal = document.getElementById('prayerModal');
     const title = document.getElementById('modalTitle');
-    
+
     if (eventName) {
         title.innerText = 'Register for ' + eventName;
     } else {
@@ -131,7 +131,7 @@ function moveSlide(direction) {
     if (slides.length === 0) return;
 
     slides[currentSlide].classList.remove('active');
-    
+
     currentSlide += direction;
 
     if (currentSlide >= slides.length) {
@@ -147,13 +147,13 @@ function moveSlide(direction) {
 // READ FULL STORY MODAL LOGIC
 function openStoryModal(title, author, content) {
     const modal = document.getElementById('readStoryModal');
-    
+
     document.getElementById('modalStoryTitle').innerText = title;
     document.getElementById('modalStoryAuthor').innerText = ' ' + author;
     document.getElementById('modalStoryContent').innerText = content;
-    
+
     // Alisin muna natin ang style.display = 'flex' kung nakatago ito sa CSS gamit ang opacity/visibility
-    modal.classList.add('active'); 
+    modal.classList.add('active');
 }
 
 function closeReadStoryModal() {
@@ -179,23 +179,23 @@ function handleShareStorySubmit(event) {
 }
 
 
-       function openModal(imgSrc, title, desc) {
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('eventModal').style.display = 'flex';
-        }
+function openModal(imgSrc, title, desc) {
+    document.getElementById('modalImg').src = imgSrc;
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalDesc').innerText = desc;
+    document.getElementById('eventModal').style.display = 'flex';
+}
 
-        function closeModal() {
-            document.getElementById('eventModal').style.display = 'none';
-        }
+function closeModal() {
+    document.getElementById('eventModal').style.display = 'none';
+}
 
-        function closeModalOnOutside(event) {
-            const modal = document.getElementById('eventModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
+function closeModalOnOutside(event) {
+    const modal = document.getElementById('eventModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('teamModal');
     const modalImg = document.getElementById('modalImg');
@@ -216,17 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (name) modalName.textContent = name.textContent;
             if (role) modalRole.textContent = role.textContent;
             if (desc) modalDesc.textContent = desc.textContent;
-
-            // Buksan ang modal na may animation
-            modal.classList.add('active');
+            modal.classList.add('active')
         });
     });
 
     // Isara ang modal nang may animation
-    const closeModal = () => {
-        modal.classList.remove('active');
-    };
-
+ const closeModal = () => {
+    modal.classList.remove('active'); // Diretsong mag-a-animate pabalik (fade-out)
+};
     closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', (e) => {
@@ -245,9 +242,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('eventSearch');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    
+
     // Naka-target na ngayon sa eksaktong class na gamit mo (.card)
-    const eventCards = document.querySelectorAll('.gallery .card'); 
+    const eventCards = document.querySelectorAll('.gallery .card');
 
     let currentFilter = 'all';
     let searchQuery = '';
@@ -276,15 +273,22 @@ document.addEventListener('DOMContentLoaded', () => {
             filterEvents();
         });
     }
-
-    // Category Filter Buttons Listener
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            currentFilter = btn.getAttribute('data-filter');
-            filterEvents();
-        });
-    });
 });
+// Function para buksan ang larawan nang malaki sa mismong screen
+window.viewFullImage = function () {
+    const modalImg = document.getElementById('modalImg');
+    const zoomModal = document.getElementById('imgZoomModal');
+    const zoomedImg = document.getElementById('zoomedImg');
+
+    if (modalImg && modalImg.src) {
+        zoomedImg.src = modalImg.src;
+        zoomModal.style.display = 'flex';
+    }
+};
+
+window.closeImgZoom = function () {
+    const zoomModal = document.getElementById('imgZoomModal');
+    if (zoomModal) {
+        zoomModal.style.display = 'none';
+    }
+};

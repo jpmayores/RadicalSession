@@ -15,7 +15,9 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta name="theme-color" content="#ff5722">
     <title>Home | Radical Generation Session</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="../asset/style.css">
     <link rel="stylesheet" href="../asset/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -395,6 +397,15 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered! Scope:', reg.scope))
+            .catch(err => console.log('Service Worker registration failed:', err));
+        });
+      }
+    </script>
 </body>
 
 </html>

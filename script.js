@@ -364,3 +364,9 @@ if (installBtn) {
     installBtn.style.display = 'none';
   });
 }
+window.addEventListener('beforeinstallprompt', (e) => {
+  console.log('Nasalo ang beforeinstallprompt event!');
+  e.preventDefault();
+  deferredPrompt = e;
+  if (installBtn) installBtn.style.display = 'block';
+});

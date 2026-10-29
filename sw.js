@@ -2,8 +2,8 @@ const CACHE_NAME = 'rgen-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/about.html',
-  '/events.html',
+  '/About.html',
+  '/Events.html',
   '/stories.html',
   '/style.css',
   '/script.js'

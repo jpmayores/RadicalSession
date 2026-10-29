@@ -365,8 +365,11 @@ if (installBtn) {
   });
 }
 window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('Nasalo ang beforeinstallprompt event!');
-  e.preventDefault();
-  deferredPrompt = e;
-  if (installBtn) installBtn.style.display = 'block';
+  console.log('Pumasok ang beforeinstallprompt event!');
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(() => console.log('Service Worker Active na!'))
+    .catch((err) => console.log('Service Worker Error:', err));
+}

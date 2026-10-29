@@ -298,18 +298,37 @@ window.closeImgZoom = function () {
 const subscribeBtn = document.getElementById("subscribeBtn");
 
 if (subscribeBtn) {
+  // Function para i-check at i-update ang mukha ng button
+  async function updateButtonUI() {
+    const isOptedIn = OneSignal.User.PushSubscription.optedIn;
+    
+    if (isOptedIn) {
+      subscribeBtn.innerHTML = "🔔 Subscribed";
+      subscribeBtn.classList.add("subscribed"); // Pwede mong lagyan ng CSS style
+    } else {
+      subscribeBtn.innerHTML = "🔔 Get Event Alerts";
+      subscribeBtn.classList.remove("subscribed");
+    }
+  }
+
+  // Patakbuhin ang UI check sa simula
+  updateButtonUI();
+
+  // Button Click Event Listener
   subscribeBtn.addEventListener("click", async function () {
-    // Check if the user is already opted in to push notifications
     const isOptedIn = OneSignal.User.PushSubscription.optedIn;
 
     if (isOptedIn) {
-      // If already subscribed, opt the user out
+      // Kung naka-subscribe na at clinic, maaari mo silang i-opt out
       await OneSignal.User.PushSubscription.optOut();
       alert("You have opted out of notification alerts.");
     } else {
-      // If not yet subscribed, request permission and opt-in
+      // Kung hindi pa, hilingin ang permission at i-opt-in
       await OneSignal.Notifications.requestPermission();
       await OneSignal.User.PushSubscription.optIn();
     }
+
+    // I-update ulit ang UI pagkatapos mag-click
+    updateButtonUI();
   });
 }

@@ -332,20 +332,21 @@ if (subscribeBtn) {
     updateButtonUI();
   });
 }
-
 let deferredPrompt = null;
 const installBtn = document.getElementById('installBtn');
 
-// Pagsuporta sa beforeinstallprompt event
+// 1. Sasalo sa event at magpapakita ng button kapag handa na
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
+  console.log('Pumasok ang beforeinstallprompt event!');
+  
   if (installBtn) {
-    installBtn.style.display = 'inline-block'; // Kusang lalabas lang kapag handa na ang prompt
+    installBtn.style.display = 'inline-block';
   }
 });
 
-// Click handler para sa button
+// 2. Click handler para sa button
 if (installBtn) {
   installBtn.addEventListener('click', async () => {
     if (deferredPrompt) {
@@ -355,14 +356,10 @@ if (installBtn) {
       deferredPrompt = null;
       installBtn.style.display = 'none';
     } else {
-      alert('Paki-refresh ang page o tiyaking gamit ang Chrome sa Android para ma-install.');
+      alert('Wala pang deferredPrompt event! Subukang i-refresh ang page o buksan sa Chrome Android.');
     }
   });
 }
-window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('Pumasok ang beforeinstallprompt event!');
-});
-
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
     .then(() => console.log('Service Worker Active na!'))

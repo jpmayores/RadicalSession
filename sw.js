@@ -5,7 +5,7 @@ const urlsToCache = [
   '/About.html',
   '/Events.html',
   '/stories.html',
-  '/style.css',
+  '/asset/style.css',
   '/script.js'
 ];
 

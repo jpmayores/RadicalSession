@@ -332,3 +332,35 @@ if (subscribeBtn) {
     updateButtonUI();
   });
 }
+
+
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Pigilan munang lumabas ang default banner ng browser
+  e.preventDefault();
+  deferredPrompt = e;
+  
+  // Ipapakita natin ang custom button mo
+  if (installBtn) {
+    installBtn.style.display = 'block';
+  }
+});
+
+if (installBtn) {
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    
+    // Ipakita ang install prompt sa user
+    deferredPrompt.prompt();
+    
+    // Alamin kung tinanggap o tinanggihan ng user
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+    
+    // Linisin ang prompt variable
+    deferredPrompt = null;
+    installBtn.style.display = 'none';
+  });
+}

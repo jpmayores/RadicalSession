@@ -293,18 +293,23 @@ window.closeImgZoom = function () {
     }
 };
 
+// Pagtatagpo sa custom button gamit ang ID nito[cite: 2]
+    const subscribeBtn = document.getElementById("subscribeBtn");
 
+    if (subscribeBtn) {
+      subscribeBtn.addEventListener("click", async function () {
+        // I-check kung sumunod o naka-opt-in na ang user
+        const isOptedIn = OneSignal.User.PushSubscription.optedIn;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const subscribeBtn = document.getElementById('subscribeBtn');
-
-  if (subscribeBtn) {
-    subscribeBtn.addEventListener('click', async () => {
-      try {
-        await OneSignal.Slidedown.promptPush();
-      } catch (error) {
-        console.error("Error sa pag-subscribe:", error);
-      }
-    });
-  }
-});
+        if (isOptedIn) {
+          // Kung naka-subscribe na, i-opt-out
+          await OneSignal.User.PushSubscription.optOut();
+          alert("Naka-opt out ka na sa notification alerts.");
+        } else {
+          // Kung hindi pa, hilingin ang permission / i-prompt ang subscription
+          await OneSignal.Notifications.requestPermission();
+          await OneSignal.User.PushSubscription.optIn();
+        }
+      });
+    }
+  

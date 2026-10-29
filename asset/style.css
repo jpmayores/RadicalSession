@@ -22,6 +22,24 @@ html, body {
     overflow-y: hidden; /* Para mawala ang scrollbar */
     background-color: #0f0f11;
 }
+/* Custom OneSignal Flame Orange Button Style */
+.rgen-notification-btn {
+  background: transparent;
+  border: 2px solid #ff4500;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.2);
+}
+
+.rgen-notification-btn:hover {
+  background: #ff4500;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);
+}
 /* Navigation Header Animation */
 .navigation {
     display: flex;

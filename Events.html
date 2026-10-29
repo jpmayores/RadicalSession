@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="../asset/event.css">
     <link rel="stylesheet" href="../asset/style.css">
     <link rel="stylesheet" href="../asset/main.css">
-     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "712414ea-132e-44b8-88fd-bf781441266a",
-      safari_web_id: "web.onesignal.auto.365cbfbd-b203-4342-b6f2-394fa1a1712a",
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });
-</script>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        OneSignalDeferred.push(async function (OneSignal) {
+            await OneSignal.init({
+                appId: "712414ea-132e-44b8-88fd-bf781441266a",
+                safari_web_id: "web.onesignal.auto.365cbfbd-b203-4342-b6f2-394fa1a1712a",
+                notifyButton: {
+                    enable: false,
+                },
+            });
+        });
+    </script>
 </head>
 
 <body class="main">
@@ -42,6 +42,10 @@
             <a href="About.html">About</a>
             <a href="Events.html" class="active">Events</a>
             <a href="stories.html">Stories</a>
+            <!-- Custom OneSignal Notification Button -->
+            <button id="subscribeBtn" class="rgen-notification-btn">
+                🔔 Get Event Alerts
+            </button>
 
         </nav>
     </header>
@@ -49,21 +53,21 @@
     <!-- Main Content Area -->
     <main id="content-area">
         <h2 class="section-title">Ministry Events & Memories</h2>
-<div class="events-filter-container">
-  <!-- Search Input -->
-  <div class="search-box">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="eventSearch" placeholder="Search events or memories..." autocomplete="off">
-  </div>
+        <div class="events-filter-container">
+            <!-- Search Input -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="eventSearch" placeholder="Search events or memories..." autocomplete="off">
+            </div>
 
-  <!-- Category Filter Buttons -->
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="fellowship">Fellowship</button>
-    <button class="filter-btn" data-filter="outreach">Outreach</button>
-    <button class="filter-btn" data-filter="services">Services</button>
-  </div>
-</div>
+            <!-- Category Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="fellowship">Fellowship</button>
+                <button class="filter-btn" data-filter="outreach">Outreach</button>
+                <button class="filter-btn" data-filter="services">Services</button>
+            </div>
+        </div>
         <div class="gallery">
 
             <!-- Card 1 -->
@@ -89,10 +93,10 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="card" 
-          onclick="openModal('images/liyab.jpg', 'Summer Praise (Liyab)', 'April 27, 2025 | INTER–CHURCH SUMMER PRAISE • LIYAB \nOur GOD is consuming fire 🔥\n\n\&quot;...and thus let us offer to God acceptable worship, with reverence and awe, for our God is a consuming fire.\&quot; Hebrews 12:28-29\n\nALL THE HONOR, GLORY, AND ADORATION BELONGS TO GOD, NOW AND FOREVER!')">
-                 <img src="images/liyab.jpg" alt="Rgen Anniversary">
-          <p>Summer Praise (Liyab)</p>
+            <div class="card"
+                onclick="openModal('images/liyab.jpg', 'Summer Praise (Liyab)', 'April 27, 2025 | INTER–CHURCH SUMMER PRAISE • LIYAB \nOur GOD is consuming fire 🔥\n\n\&quot;...and thus let us offer to God acceptable worship, with reverence and awe, for our God is a consuming fire.\&quot; Hebrews 12:28-29\n\nALL THE HONOR, GLORY, AND ADORATION BELONGS TO GOD, NOW AND FOREVER!')">
+                <img src="images/liyab.jpg" alt="Rgen Anniversary">
+                <p>Summer Praise (Liyab)</p>
             </div>
 
             <!-- Card 5 -->
@@ -129,7 +133,7 @@
                 <p>09.27.26 | 4TH ANNIVERSARY SERVICE • BRAND NEW DAY
                 </p>
             </div>
-               <!-- Card 10 -->
+            <!-- Card 10 -->
             <div class="card"
                 onclick="openModal('images/kids.jpg', '03.29.26 | 1ST RGEN KIDZ SESH ', 'Seeing these young hearts worship, learn, and express their faith through creativity reminds us that true joy comes from the Lord alone.\n\nEvery smile, every artwork, and every moment shared was a beautiful reflection of God’s love and joy in their lives\n\n.See ü on our next sesh, RGen kidz!ALL GLORY TO GOD, NOW AND FOREVER')">
                 <img src="images/kids.jpg" alt="Puhon">
@@ -138,9 +142,9 @@
             <div class="card"
                 onclick="openModal('images/interpraise.jpg', '05.31.26 | Inter-Church Summer Praise 2026', 'We are grateful and overflowing with joy for the victorious Inter-Church Summer Praise Fuel Up: Next Gen Energy last Sunday!\n\nThank You, Jesus, for every young person who came with expectant hearts, every worship song lifted, every prayer spoken, every truth shared, and every heart renewed in Your presence. Truly, You are our greatest source of energy\n\nTO GOD BE ALL THE PRAISE, HONOR, AND GLORY—NOW AND FOREVER!')">
                 <img src="images/interpraise.jpg" alt="Puhon">
-                <p>Inter-Church Summer Praise Fuel Up: Next Gen Energy  </p>
+                <p>Inter-Church Summer Praise Fuel Up: Next Gen Energy </p>
             </div>
-              <div class="card"
+            <div class="card"
                 onclick="openModal('images/tuktukan.jpg', '10.18.26 | TUKTUKAN HOUSE OF PRAYER’S 10TH ANNIVERSARY CELEBRATION', 'For a decade, we have witnessed God’s goodness, grace, and unfailing love. Truly, He has brought us this far, and to Him alone belongs all the glory.\n\nWe praise God for every willing heart and helping hand that made this celebration a meaningful testimony of His goodness and faithfulness.We also praise God for the life of our guest preacher, Sis. Dayan Elloren for sharing God’s Word and blessing us with a timely message.\n\nMay we continue to serve Him faithfully until the very end.I have fought the good fight, I have finished the race, and I have remained faithful. ” — 2 Timothy 4:7TO GOD BE ALL THE GLORY — NOW, AND FOREVER')">
                 <img src="images/tuktukan.jpg" alt="Puhon">
                 <p>TUKTUKAN HOUSE OF PRAYER’S 10TH ANNIVERSARY CELEBRATION </p>
@@ -151,26 +155,26 @@
     <!-- Facebook View More Call-to-Action Section -->
     <div class="more-events-container">
         <p>Gusto mo pa bang makakita ng iba pang nakaraang events at mga Memories?</p>
-        <a href="https://www.facebook.com/profile.php?id=61561593338354" target="_blank"  class="fb-more-btn">
+        <a href="https://www.facebook.com/profile.php?id=61561593338354" target="_blank" class="fb-more-btn">
             <i class="fab fa-facebook"></i> View More Events on Facebook
         </a>
     </div>
     <!-- Modal Popup Box -->
-     
+
     <div id="eventModal" class="modal" onclick="closeModalOnOutside(event)">
-        <div class="modal-content"> 
+        <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <img id="modalImg" src="" onclick="viewFullImage()" alt="Event Image">
             <h3 id="modalTitle"></h3>
             <div class="modal-text-body">
-            <p id="modalDesc"></p>
+                <p id="modalDesc"></p>
             </div>
         </div>
     </div>
-<div id="imgZoomModal" class="img-zoom-overlay" onclick="closeImgZoom()">
-    <span class="zoom-close-btn">&times;</span>
-    <img id="zoomedImg" src="" alt="Zoomed Event Image">
-</div>
+    <div id="imgZoomModal" class="img-zoom-overlay" onclick="closeImgZoom()">
+        <span class="zoom-close-btn">&times;</span>
+        <img id="zoomedImg" src="" alt="Zoomed Event Image">
+    </div>
     <!-- JavaScript para sa Popup Functionality -->
     <script src="script.js"></script>
 </body>

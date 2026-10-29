@@ -292,3 +292,19 @@ window.closeImgZoom = function () {
         zoomModal.style.display = 'none';
     }
 };
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const subscribeBtn = document.getElementById('subscribeBtn');
+
+  if (subscribeBtn) {
+    subscribeBtn.addEventListener('click', async () => {
+      try {
+        await OneSignal.Slidedown.promptPush();
+      } catch (error) {
+        console.error("Error sa pag-subscribe:", error);
+      }
+    });
+  }
+});

@@ -333,35 +333,30 @@ if (subscribeBtn) {
   });
 }
 
-
-let deferredPrompt;
+let deferredPrompt = null;
 const installBtn = document.getElementById('installBtn');
 
+// Pagsuporta sa beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Pigilan munang lumabas ang default banner ng browser
   e.preventDefault();
   deferredPrompt = e;
-  
-  // Ipapakita natin ang custom button mo
   if (installBtn) {
-    installBtn.style.display = 'block';
+    installBtn.style.display = 'inline-block'; // Kusang lalabas lang kapag handa na ang prompt
   }
 });
 
+// Click handler para sa button
 if (installBtn) {
   installBtn.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    
-    // Ipakita ang install prompt sa user
-    deferredPrompt.prompt();
-    
-    // Alamin kung tinanggap o tinanggihan ng user
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
-    
-    // Linisin ang prompt variable
-    deferredPrompt = null;
-    installBtn.style.display = 'none';
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response to the install prompt: ${outcome}`);
+      deferredPrompt = null;
+      installBtn.style.display = 'none';
+    } else {
+      alert('Paki-refresh ang page o tiyaking gamit ang Chrome sa Android para ma-install.');
+    }
   });
 }
 window.addEventListener('beforeinstallprompt', (e) => {

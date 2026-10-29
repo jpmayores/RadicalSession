@@ -294,22 +294,22 @@ window.closeImgZoom = function () {
 };
 
 // Pagtatagpo sa custom button gamit ang ID nito[cite: 2]
-    const subscribeBtn = document.getElementById("subscribeBtn");
+  // Pagtatagpo sa custom button gamit ang ID nito
+const subscribeBtn = document.getElementById("subscribeBtn");
 
-    if (subscribeBtn) {
-      subscribeBtn.addEventListener("click", async function () {
-        // I-check kung sumunod o naka-opt-in na ang user
-        const isOptedIn = OneSignal.User.PushSubscription.optedIn;
+if (subscribeBtn) {
+  subscribeBtn.addEventListener("click", async function () {
+    // Check if the user is already opted in to push notifications
+    const isOptedIn = OneSignal.User.PushSubscription.optedIn;
 
-        if (isOptedIn) {
-          // Kung naka-subscribe na, i-opt-out
-          await OneSignal.User.PushSubscription.optOut();
-          alert("Naka-opt out ka na sa notification alerts.");
-        } else {
-          // Kung hindi pa, hilingin ang permission / i-prompt ang subscription
-          await OneSignal.Notifications.requestPermission();
-          await OneSignal.User.PushSubscription.optIn();
-        }
-      });
+    if (isOptedIn) {
+      // If already subscribed, opt the user out
+      await OneSignal.User.PushSubscription.optOut();
+      alert("You have opted out of notification alerts.");
+    } else {
+      // If not yet subscribed, request permission and opt-in
+      await OneSignal.Notifications.requestPermission();
+      await OneSignal.User.PushSubscription.optIn();
     }
-  
+  });
+}

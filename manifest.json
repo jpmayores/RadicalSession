@@ -1,19 +1,22 @@
 {
   "name": "Radical Generation Session",
   "short_name": "RGen",
+  "description": "An inspiring and life-changing experience with Jesus Christ.",
   "start_url": "/index.html",
   "display": "standalone",
+  "orientation": "portrait",
+  "id": "/",
   "background_color": "#0f0f0f",
   "theme_color": "#ff5722",
   "icons": [
     {
-      "src": "images/RADICALGENICON.png",
+      "src": "/RADICALGENICON.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src":  "images/RADICALGENICON.png",
+      "src": "/RADICALGENICON.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -10,8 +10,8 @@
   "theme_color": "#ff5722",
   "icons": [
     {
-      "src": "images/WildFlame.png",
-      "sizes": "192x192",
+      "src": "images/Logo.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },

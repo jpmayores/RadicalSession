@@ -16,8 +16,8 @@
       "purpose": "any maskable"
     },
     {
-      "src": "images/RADICALGENICON.png",
-      "sizes": "256x256",
+      "src": "images/Logo.png",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }

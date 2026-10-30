@@ -333,33 +333,25 @@ if (subscribeBtn) {
   });
 }
 let deferredPrompt = null;
-const installBtn = document.getElementById('installBtn');
+window.deferredPromptStatus = "Naka-load ang script, naghihintay ng beforeinstallprompt...";
 
-// 1. Sasalo sa event at magpapakita ng button kapag handa na
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
+  window.deferredPromptStatus = "SUCCESS: Pumasok na ang deferredPrompt!";
   console.log('Pumasok ang beforeinstallprompt event!');
   
+  const installBtn = document.getElementById('installBtn');
   if (installBtn) {
     installBtn.style.display = 'inline-block';
   }
 });
 
-// 2. Click handler para sa button
-if (installBtn) {
-  installBtn.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User response to the install prompt: ${outcome}`);
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    } else {
-      alert('Wala pang deferredPrompt event! Subukang i-refresh ang page o buksan sa Chrome Android.');
-    }
-  });
-}
+window.addEventListener('appinstalled', (evt) => {
+  window.deferredPromptStatus = "NA-INSTALL NA ANG APP!";
+  console.log('RGen App was installed.');
+});
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
     .then(() => console.log('Service Worker Active na!'))
